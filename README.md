@@ -34,8 +34,8 @@ If you want to learn more about Brick, please visit [brickschema.org](https://br
 
 
 ## Getting Started
-1. Install and run Virtuoso (Note: Please use only released versions in Virtuoso repository.)
-2. Install and run TimescaleDB/PostgreSQL
+1. Install and run Virtuoso (Note: Please use only released versions in Virtuoso repository. [link](https://github.com/openlink/virtuoso-opensource/releases))
+2. Install and run TimescaleDB/PostgreSQL. [link](https://docs.timescale.com/getting-started/installation)
 3. Install pip packages by ``pip install -r requirements.txt``
 4. Configure the databases and configure ``configs/configs.json``
     1. Create a database with a proper name (e.g., ``brick``,
