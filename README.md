@@ -46,17 +46,32 @@ If you want to learn more about Brick, please visit [brickschema.org](https://br
 
 ### Alternative: Use Ansible
 
+Ansible is a piece of provisioning software that simplifies the process of installing software on local or remote machines. Ansible is launched from a **control machine** (usually your laptop or personal computer) and targets a set of **hosts**, which consists of a list of IP addresses (this can contain your local machine if you use `localhost`). If you are unfamiliar with Ansible, we recommend reading the [Getting Started Documentation](https://docs.ansible.com/ansible/2.7/user_guide/intro_getting_started.html#getting-started)
+
 1. Make sure Python >=3.6 is installed on the deployment server
 2. Install ansible on your local machine
     - follow instructions for the [control machine](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-machine)
-3. Edit your `/etc/ansible/hosts` file to include the remote host and any SSH key you need
+3. Edit your `/etc/ansible/hosts` file to include the remote host and any SSH key you need; for example
 
-```
-[ec2test]
-52.91.98.98 ansible_ssh_private_key_file=/path/to/my/ssh/key
-```
+    ```ini
+    [ec2test]
+    52.91.98.98 ansible_ssh_private_key_file=/path/to/my/ssh/key
+    ```
+    Ansible documentation for this step can be found [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
 
-4. Run `ansible-playbook brick-server-playbook.yml` from the `ansible` directory
+4. Edit the `ansible/brick-server-playbook.yml` file:
+
+    ```yaml
+    - hosts:
+      - ec2test
+      remote_user: ubuntu
+      # ...
+    ```
+
+    Edit the remote user name and the hosts designator appropriately. Note that the `ec2test` here is
+    the same as in the `/etc/ansible/hosts` file.
+
+5. Run `ansible-playbook brick-server-playbook.yml` from the `ansible` directory.
 
 # References
 - Brick (BuildSys 2016)
