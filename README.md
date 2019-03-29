@@ -48,7 +48,9 @@ If you want to learn more about Brick, please visit [brickschema.org](https://br
 
 Ansible is a piece of provisioning software that simplifies the process of installing software on local or remote machines. Ansible is launched from a **control machine** (usually your laptop or personal computer) and targets a set of **hosts**, which consists of a list of IP addresses (this can contain your local machine if you use `localhost`). If you are unfamiliar with Ansible, we recommend reading the [Getting Started Documentation](https://docs.ansible.com/ansible/2.7/user_guide/intro_getting_started.html#getting-started)
 
-1. Make sure Python >=3.6 is installed on the deployment server
+1. Instal dependencies:
+    - Make sure Python >=3.6 is installed on the deployment server.
+    - Enable Filesystem ACL  in the host. ([for Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs<Paste>))
 2. Install ansible on your local machine
     - follow instructions for the [control machine](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-machine)
 3. Edit your `/etc/ansible/hosts` file to include the remote host and any SSH key you need; for example
