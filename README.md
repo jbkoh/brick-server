@@ -73,7 +73,11 @@ Ansible is a piece of provisioning software that simplifies the process of insta
     Edit the remote user name and the hosts designator appropriately. Note that the `ec2test` here is
     the same as in the `/etc/ansible/hosts` file.
 
-5. Run `ansible-playbook brick-server-playbook.yml` from the `ansible` directory.
+5. In the host machine, create a Linux user such as `prod` and assign sudo access to it. The user also should be able to execute sudo without password. ([example](https://www.cyberciti.biz/faq/linux-unix-running-sudo-command-without-a-password/))
+
+6. Change `remote_user` inside `ansible-playbook brick-server-playbook.yml` to be matched to the one created in 5. (e.g., `prod`)
+
+7. Run `ansible-playbook brick-server-playbook.yml` from the `ansible` directory.
 
 # References
 - Brick (BuildSys 2016)
